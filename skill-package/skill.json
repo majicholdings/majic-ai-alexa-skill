@@ -18,8 +18,8 @@
             "assistant",
             "chat"
           ],
-          "smallIconUri": "https://appmajic.ai/assets/alexa/en-US_smallIcon.png",
-          "largeIconUri": "https://appmajic.ai/assets/alexa/en-US_largeIcon.png"
+          "smallIconUri": "https://raw.githubusercontent.com/majicholdings/majic-ai-alexa-skill/main/skill-package/assets/images/en-US_smallIcon.png",
+          "largeIconUri": "https://raw.githubusercontent.com/majicholdings/majic-ai-alexa-skill/main/skill-package/assets/images/en-US_largeIcon.png"
         }
       },
       "isAvailableWorldwide": false,

@@ -116,20 +116,20 @@ Development, and say *"Alexa, ask Majic AI to …"*.
 
 The console requires a **108x108** small icon and a **512x512** large icon. Both
 placeholders ship in `skill-package/assets/images/` (public-safe Majic AI wordmark,
-no Amazon/Alexa artwork). The manifest points `smallIconUri` / `largeIconUri` at:
+no Amazon/Alexa artwork). The manifest points `smallIconUri` / `largeIconUri` at the
+committed copies served over raw GitHub HTTPS:
 
 ```
-https://appmajic.ai/assets/alexa/en-US_smallIcon.png
-https://appmajic.ai/assets/alexa/en-US_largeIcon.png
+https://raw.githubusercontent.com/majicholdings/majic-ai-alexa-skill/main/skill-package/assets/images/en-US_smallIcon.png
+https://raw.githubusercontent.com/majicholdings/majic-ai-alexa-skill/main/skill-package/assets/images/en-US_largeIcon.png
 ```
 
-Alexa manifests only accept **HTTPS** icon URIs (not local file paths), so pick one:
-
-- **Host the two PNGs** at the URLs above (or edit the URIs in `skill.json` to
-  wherever you host them). The URLs must return the images over public HTTPS.
-- **Or upload in the console:** after import, go to **Distribution → Skill
-  Preview**, upload the two PNGs from `skill-package/assets/images/`, and save —
-  the console rewrites the URIs to its own CDN.
+These resolve as long as the repo is public and the assets stay at those paths on
+`main`. Alexa manifests only accept **HTTPS** icon URIs (not local file paths). If
+you fork/rename the repo or host elsewhere, edit the two URIs in `skill.json`
+accordingly. Alternatively, after import you can upload the two PNGs from
+`skill-package/assets/images/` under **Distribution → Skill Preview** and the console
+rewrites the URIs to its own CDN.
 
 Regenerate the placeholders any time with `python3 skill-package/assets/make_icons.py`
 (requires Pillow). Replace them with real brand assets before publishing.
