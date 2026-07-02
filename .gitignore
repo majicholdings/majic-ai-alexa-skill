@@ -1,0 +1,41 @@
+# ─── Secrets / credentials (never commit) ────────────────────────────────────
+.env
+.env.*
+*.pem
+*.key
+*.p8
+*.p12
+config.json
+secrets.json
+credentials
+credentials.json
+.aws/
+
+# ─── ASK CLI / Alexa build artifacts ─────────────────────────────────────────
+.ask/
+ask-states.json
+*.skill-package.zip
+skill-package/build/
+
+# ─── Python ──────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+env/
+lambda/py/.venv/
+
+# Dependencies vendored by the Alexa-hosted build (do not commit)
+lambda/py/site-packages/
+
+# ─── Editors / OS ─────────────────────────────────────────────────────────────
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.swp

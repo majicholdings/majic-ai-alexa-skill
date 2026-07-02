@@ -1,0 +1,63 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "majic ai",
+      "intents": [
+        {
+          "name": "AskMajicIntent",
+          "slots": [
+            {
+              "name": "query",
+              "type": "AMAZON.SearchQuery"
+            }
+          ],
+          "samples": [
+            "to {query}",
+            "about {query}",
+            "for {query}",
+            "if {query}",
+            "whether {query}",
+            "how {query}",
+            "what {query}",
+            "why {query}",
+            "when {query}",
+            "where {query}",
+            "who {query}",
+            "which {query}",
+            "can you {query}",
+            "could you {query}",
+            "should i {query}",
+            "do i {query}",
+            "does {query}",
+            "is {query}",
+            "are {query}",
+            "tell me {query}",
+            "tell me about {query}",
+            "help me {query}",
+            "explain {query}",
+            "give me {query}",
+            "find {query}",
+            "search for {query}"
+          ]
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.FallbackIntent",
+          "samples": []
+        }
+      ],
+      "types": []
+    }
+  }
+}

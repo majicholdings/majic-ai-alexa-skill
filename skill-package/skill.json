@@ -1,0 +1,50 @@
+{
+  "manifest": {
+    "manifestVersion": "1.0",
+    "publishingInformation": {
+      "locales": {
+        "en-US": {
+          "name": "Majic AI",
+          "summary": "Chat with the private Majic AI Director by voice.",
+          "description": "Ask the private Majic AI Director anything and hear the answer spoken back. Say \"Alexa, ask Majic to ...\" or \"Alexa, tell Majic ...\" followed by your question. Majic runs entirely on your own private AI stack — no public AI provider is used for the chat.",
+          "examplePhrases": [
+            "Alexa, ask Majic to summarize today's tasks",
+            "Alexa, ask Majic what it can do",
+            "Alexa, tell Majic to explain the node pool"
+          ],
+          "keywords": [
+            "majic",
+            "ai",
+            "assistant",
+            "chat"
+          ]
+        }
+      },
+      "isAvailableWorldwide": false,
+      "distributionCountries": [
+        "US"
+      ],
+      "testingInstructions": "Set the MAJIC_ALEXA_ENDPOINT environment variable on the Alexa-hosted Lambda to your deployed https://api.appmajic.ai/api/alexa/majic and set Alexa:MajicSkillId on that backend to this skill's application id. Then say: \"ask Majic what it can do\".",
+      "category": "PRODUCTIVITY",
+      "distributionMode": "PRIVATE"
+    },
+    "apis": {
+      "custom": {
+        "interfaces": []
+      }
+    },
+    "privacyAndCompliance": {
+      "allowsPurchases": false,
+      "usesPersonalInfo": false,
+      "isChildDirected": false,
+      "isExportCompliant": true,
+      "containsAds": false,
+      "locales": {
+        "en-US": {
+          "privacyPolicyUrl": "https://appmajic.ai/privacy",
+          "termsOfUseUrl": "https://appmajic.ai/terms"
+        }
+      }
+    }
+  }
+}

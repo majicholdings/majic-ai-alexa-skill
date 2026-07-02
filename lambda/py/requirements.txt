@@ -1,0 +1,10 @@
+# The Majic Alexa bridge uses only the Python standard library (json, os,
+# urllib), so no third-party packages are required at runtime.
+#
+# The Alexa Developer Console still expects this file to exist for the
+# Alexa-hosted Python build. Leaving it dependency-free keeps the deploy fast
+# and avoids pulling in anything that could carry secrets or bloat.
+#
+# If you later refactor this Lambda to use the official Alexa SDK, add it here,
+# for example:
+#   ask-sdk-core==1.19.0
