@@ -17,7 +17,9 @@
             "ai",
             "assistant",
             "chat"
-          ]
+          ],
+          "smallIconUri": "https://appmajic.ai/assets/alexa/en-US_smallIcon.png",
+          "largeIconUri": "https://appmajic.ai/assets/alexa/en-US_largeIcon.png"
         }
       },
       "isAvailableWorldwide": false,

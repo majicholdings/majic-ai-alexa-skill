@@ -20,8 +20,21 @@ repo** — the backend URL is supplied at runtime via an environment variable.
 2. Name it **Majic AI**, choose the **Custom** model and **Alexa-hosted (Python)**
    hosting.
 3. On the next screen choose **Import skill** and paste this repository's public
-   Git URL. The console reads `ask-resources.json` and pulls in `skill-package/`
-   (manifest + interaction model) and `lambda/` (Python code).
+   Git URL:
+
+   ```
+   https://github.com/majicholdings/majic-ai-alexa-skill.git
+   ```
+
+   The console reads `ask-resources.json` and pulls in `skill-package/`
+   (manifest + interaction model), `skill-package/assets/` (skill icons), and
+   `lambda/` (Python code).
+
+   > **You must be signed in.** The import runs through your browser under your
+   > Amazon developer login (Login-with-Amazon / ASK OAuth). There is no headless
+   > path — the console mints the management tokens interactively. The Skill
+   > Messaging **client id / client secret** are *only* for the runtime messaging
+   > API and **cannot** be used to import or manage the skill.
 4. Wait for the initial build to finish.
 5. Open **Code → Environment Variables** and set:
 
@@ -40,7 +53,11 @@ repo** — the backend URL is supplied at runtime via an environment variable.
 ├── README.md
 ├── .gitignore
 ├── skill-package/
-│   ├── skill.json                              # Skill manifest (name "Majic AI", PRIVATE distribution)
+│   ├── skill.json                              # Skill manifest (name "Majic AI", PRODUCTIVITY, PRIVATE)
+│   ├── assets/
+│   │   ├── images/en-US_smallIcon.png          # 108x108 skill icon (placeholder Majic AI wordmark)
+│   │   ├── images/en-US_largeIcon.png          # 512x512 skill icon (placeholder Majic AI wordmark)
+│   │   └── make_icons.py                        # Reproducible generator for the two icons above
 │   └── interactionModels/custom/en-US.json     # Invocation "majic ai" + AskMajicIntent (AMAZON.SearchQuery)
 └── lambda/
     └── py/
@@ -94,6 +111,28 @@ A **development-stage** skill is invocable on Echo devices signed in to the **sa
 Amazon account / household** as the developer account that owns it — no store
 listing, no certification. Keep `distributionMode` as `PRIVATE`, deploy to
 Development, and say *"Alexa, ask Majic AI to …"*.
+
+## Skill icons
+
+The console requires a **108x108** small icon and a **512x512** large icon. Both
+placeholders ship in `skill-package/assets/images/` (public-safe Majic AI wordmark,
+no Amazon/Alexa artwork). The manifest points `smallIconUri` / `largeIconUri` at:
+
+```
+https://appmajic.ai/assets/alexa/en-US_smallIcon.png
+https://appmajic.ai/assets/alexa/en-US_largeIcon.png
+```
+
+Alexa manifests only accept **HTTPS** icon URIs (not local file paths), so pick one:
+
+- **Host the two PNGs** at the URLs above (or edit the URIs in `skill.json` to
+  wherever you host them). The URLs must return the images over public HTTPS.
+- **Or upload in the console:** after import, go to **Distribution → Skill
+  Preview**, upload the two PNGs from `skill-package/assets/images/`, and save —
+  the console rewrites the URIs to its own CDN.
+
+Regenerate the placeholders any time with `python3 skill-package/assets/make_icons.py`
+(requires Pillow). Replace them with real brand assets before publishing.
 
 ## Caveats for the Alexa import
 
